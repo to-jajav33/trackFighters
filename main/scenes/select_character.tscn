@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmolhbw58awly"]
+
+[ext_resource type="Texture2D" uid="uid://cmolnftb7rkdp" path="res://main/assets_2d/button_empty.png" id="1_2ngof"]
+[ext_resource type="Script" path="res://main/scenes/select_character.gd" id="1_3565g"]
+[ext_resource type="Texture2D" uid="uid://dwsevw7fhdr66" path="res://icon.svg" id="1_g07hb"]
+[ext_resource type="Theme" uid="uid://b57113t6fueyb" path="res://main/themes/main.theme" id="4_0w3x0"]
+
+[node name="select_character" type="VBoxContainer"]
+theme_override_constants/separation = 10
+script = ExtResource("1_3565g")
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("1_2ngof")
+expand_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(1, 1, 1, 0.196078)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_g07hb")
+texture_pressed = ExtResource("1_g07hb")
+texture_hover = ExtResource("1_g07hb")
+texture_disabled = ExtResource("1_g07hb")
+texture_focused = ExtResource("1_g07hb")
+
+[node name="Button_Done" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("4_0w3x0")
+disabled = true
+text = "DONE"
+
+[connection signal="pressed" from="GridContainer/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Button_Done" to="." method="_on_button_done_pressed"]
