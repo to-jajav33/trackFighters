@@ -18,5 +18,5 @@ func _on_texture_button_pressed():
 
 
 func _on_button_done_pressed():
-	
+	Common.characterSelectedAndDone();
 	pass # Replace with function body.
